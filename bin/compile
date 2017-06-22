@@ -74,8 +74,8 @@ BUILDCMD="$BUILDCMD $GRADLE_TASK"
 cd $BUILD_DIR
 
 # build app
-puts_step "Building Gradle app..."
-puts_step "Executing: $BUILDCMD"
+puts_step "Building Gradle app"
+echo "$ $BUILDCMD"
 
 buildLogFile=$(create_build_log_file)
 
