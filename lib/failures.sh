@@ -13,7 +13,7 @@ Heroku"
 
   if grep -qi "Task 'stage' not found in root project" "$log_file"; then
     mcount "error.no-stage-task"
-    error "${header}
+    puts_error "${header}
 It looks like your project does not contain a 'stage' task, which Heroku needs in order
 to build your app. Our Dev Center article on preparing a Gradle application for Heroku
 describes how to create this task:
@@ -25,7 +25,7 @@ https://help.heroku.com
 ${footer}"
   elif grep -qi "Could not find or load main class org.gradle.wrapper.GradleWrapperMain" "$log_file"; then
     mcount "error.no-gradle-jar"
-    error "${header}
+    puts_error "${header}
 It looks like you don't have a gradle-wrapper.jar file checked into your Git repo.
 Heroku needs this JAR file in order to run Gradle.  Our Dev Center article on preparing
 a Gradle application for Heroku describes how to fix this:
@@ -37,7 +37,7 @@ https://help.heroku.com
 ${footer}"
   else
     mcount "error.unknown"
-    error "${header}
+    puts_error "${header}
 We're sorry this build is failing. If you can't find the issue in application
 code, please submit a ticket so we can help: https://help.heroku.com
 ${previousVersion}

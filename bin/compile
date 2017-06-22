@@ -63,7 +63,6 @@ if [ ! -f $BUILD_DIR/gradlew ] ; then
   echo "Your application does not have it's own gradlew file."
   echo "We'll install one for you, but this is a deprecated feature and"
   echo "in the future may not be supported."
-  echo ""
   cp -rn ${OPT_DIR}/wrapper/* ${BUILD_DIR}
 fi
 BUILDCMD="./gradlew"
@@ -74,6 +73,7 @@ BUILDCMD="$BUILDCMD $GRADLE_TASK"
 cd $BUILD_DIR
 
 # build app
+echo ""
 puts_step "Building Gradle app"
 echo "$BUILDCMD"
 
