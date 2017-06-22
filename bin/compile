@@ -75,7 +75,7 @@ cd $BUILD_DIR
 
 # build app
 puts_step "Building Gradle app"
-echo "$ $BUILDCMD"
+echo "$BUILDCMD"
 
 buildLogFile=$(create_build_log_file)
 
