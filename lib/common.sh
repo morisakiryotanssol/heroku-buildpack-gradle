@@ -97,7 +97,7 @@ install_jdk() {
   local cache_dir=${2:?}
   #echo "${CI}"
   let start=$(nowms)
-  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://github.com/morisakiryotanssol/heroku-buildpack-jvm-common/archive/dev7.tar.gz}
+  JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://storage.cloud.google.com/cna-cicd-buildpack-test/heroku-buildpack-jvm-common-dev7.tar.gz?hl=ja}
   mkdir -p /tmp/jvm-common
   echo "${JVM_COMMON_BUILDPACK}"
   curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
