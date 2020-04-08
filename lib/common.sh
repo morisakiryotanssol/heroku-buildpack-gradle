@@ -2,6 +2,7 @@
 
 export BUILDPACK_STDLIB_URL="https://lang-common.s3.amazonaws.com/buildpack-stdlib/v7/stdlib.sh"
 export CI=true
+echo <><><><><><><>start<><><><><><><><><><>
 
 gradle_build_file() {
   local buildDir=${1}
@@ -107,3 +108,4 @@ install_jdk() {
   install_java_with_overlay "${install_dir}" "${cache_dir}"
   mtime "jvm.install.time" "${start}"
 }
+echo ///////////////////////////////////////end////////////////////////////////////////////
