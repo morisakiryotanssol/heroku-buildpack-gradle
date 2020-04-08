@@ -92,6 +92,7 @@ cache_copy() {
 }
 
 install_jdk() {
+  echo "///////////////////////////////////////start////////////////////////////////////////////"
   local install_dir=${1:?}
   local cache_dir=${2:?}
   echo "${CI}"
@@ -107,5 +108,7 @@ install_jdk() {
   let start=$(nowms)
   install_java_with_overlay "${install_dir}" "${cache_dir}"
   mtime "jvm.install.time" "${start}"
+  echo "///////////////////////////////////////end////////////////////////////////////////////"
 }
-echo "///////////////////////////////////////end////////////////////////////////////////////"
+
+echo "<><><><><><><>end<><><><><><><><><><>"
