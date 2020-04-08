@@ -102,6 +102,7 @@ install_jdk() {
   curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
   source /tmp/jvm-common/bin/util
   source /tmp/jvm-common/bin/java
+  cat /tmp/jvm-common/opt/jdbc.sh
   source /tmp/jvm-common/opt/jdbc.sh
   mtime "jvm-common.install.time" "${start}"
 
