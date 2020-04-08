@@ -94,7 +94,7 @@ cache_copy() {
 install_jdk() {
   local install_dir=${1:?}
   local cache_dir=${2:?}
-
+  echo "${CI}
   let start=$(nowms)
   JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://github.com/morisakiryotanssol/heroku-buildpack-jvm-common/archive/dev.tar.gz}
   mkdir -p /tmp/jvm-common
