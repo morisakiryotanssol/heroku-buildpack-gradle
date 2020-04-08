@@ -2,7 +2,7 @@
 
 export BUILDPACK_STDLIB_URL="https://lang-common.s3.amazonaws.com/buildpack-stdlib/v7/stdlib.sh"
 export CI=true
-echo "<><><><><><><>start<><><><><><><><><><>"
+#echo "<><><><><><><>start<><><><><><><><><><>"
 
 gradle_build_file() {
   local buildDir=${1}
@@ -92,24 +92,24 @@ cache_copy() {
 }
 
 install_jdk() {
-  echo "///////////////////////////////////////start////////////////////////////////////////////"
+  #echo "///////////////////////////////////////start////////////////////////////////////////////"
   local install_dir=${1:?}
   local cache_dir=${2:?}
-  echo "${CI}"
+  #echo "${CI}"
   let start=$(nowms)
   JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://github.com/morisakiryotanssol/heroku-buildpack-jvm-common/archive/dev4.tar.gz}
   mkdir -p /tmp/jvm-common
   curl --retry 3 --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
   source /tmp/jvm-common/bin/util
   source /tmp/jvm-common/bin/java
-  cat /tmp/jvm-common/opt/jdbc.sh
+  #cat /tmp/jvm-common/opt/jdbc.sh
   source /tmp/jvm-common/opt/jdbc.sh
   mtime "jvm-common.install.time" "${start}"
 
   let start=$(nowms)
   install_java_with_overlay "${install_dir}" "${cache_dir}"
   mtime "jvm.install.time" "${start}"
-  echo "///////////////////////////////////////end////////////////////////////////////////////"
+  #echo "///////////////////////////////////////end////////////////////////////////////////////"
 }
 
-echo "<><><><><><><>end<><><><><><><><><><>"
+#echo "<><><><><><><>end<><><><><><><><><><>"
